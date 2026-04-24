@@ -1,0 +1,7 @@
+services:
+  credit-default-service:
+    build: .
+    image: credit-default-service:local
+    ports:
+      - "5000:5000"
+

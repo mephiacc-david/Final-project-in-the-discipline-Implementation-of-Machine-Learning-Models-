@@ -1,0 +1,48 @@
+{
+  "algorithm": "LogisticRegression",
+  "artifact_path": "models/model_v1.joblib",
+  "feature_schema": [
+    "LIMIT_BAL",
+    "SEX",
+    "EDUCATION",
+    "MARRIAGE",
+    "AGE",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6"
+  ],
+  "feature_schema_path": "models/feature_schema.json",
+  "hyperparameters": {
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "random_state": 42,
+    "solver": "liblinear"
+  },
+  "metrics": {
+    "f1": 0.500939,
+    "precision": 0.499251,
+    "recall": 0.502638
+  },
+  "model_version": "v1",
+  "random_seed": 42,
+  "test_rows": 6000,
+  "threshold": 0.56,
+  "train_rows": 18000,
+  "training_date": "2026-04-24T07:19:11.676859+00:00",
+  "validation_rows": 6000
+}
