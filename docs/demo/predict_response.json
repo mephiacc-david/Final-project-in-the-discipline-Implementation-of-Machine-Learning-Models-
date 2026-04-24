@@ -1,0 +1,7 @@
+{
+  "experiment_group": "test",
+  "model_version": "v2",
+  "prediction": 1,
+  "probability": 0.762135,
+  "request_id": "demo-predict-001"
+}

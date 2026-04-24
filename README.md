@@ -118,7 +118,7 @@ curl -X POST http://127.0.0.1:5000/predict \
 curl -X POST http://127.0.0.1:5000/predict \
   -H "Content-Type: application/json" \
   -H "X-Experiment-Key: customer-123" \
-  -d @request.json
+  -d @docs/demo/predict_request.json
 ```
 
 ## Docker Run
@@ -139,6 +139,72 @@ Bonus-compose сценарий:
 
 ```bash
 docker compose up --build
+```
+
+## Docker Hub Image
+
+Release workflow публикует образ в Docker Hub с именем:
+
+```text
+docker.io/mephidavidacc/credit-default-service
+```
+
+Ссылка для сдачи:
+
+```text
+  https://hub.docker.com/r/mephidavidacc/credit-default-service
+```
+
+## Demo
+
+Демо-артефакты лежат в `docs/demo/`:
+
+- [docs/demo/predict_request.json](docs/demo/predict_request.json)
+- [docs/demo/predict_response.json](docs/demo/predict_response.json)
+- [docs/demo/health_response.json](docs/demo/health_response.json)
+- [docs/demo/api_demo.log](docs/demo/api_demo.log)
+
+Пример `curl`-запроса:
+
+```bash
+curl -X POST http://127.0.0.1:5000/predict \
+  -H "Content-Type: application/json" \
+  -H "X-Request-ID: demo-predict-001" \
+  -d @docs/demo/predict_request.json
+```
+
+Пример вывода:
+
+```json
+{
+  "experiment_group": "test",
+  "model_version": "v2",
+  "prediction": 1,
+  "probability": 0.762135,
+  "request_id": "demo-predict-001"
+}
+```
+
+Пример `health`-ответа:
+
+```json
+{
+  "available_models": [
+    "v1",
+    "v2"
+  ],
+  "models": {
+    "v1": {
+      "algorithm": "LogisticRegression",
+      "threshold": 0.56
+    },
+    "v2": {
+      "algorithm": "RandomForestClassifier",
+      "threshold": 0.54
+    }
+  },
+  "status": "ok"
+}
 ```
 
 ## Model Artifacts

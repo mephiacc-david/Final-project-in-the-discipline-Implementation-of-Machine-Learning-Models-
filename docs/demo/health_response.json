@@ -1,0 +1,17 @@
+{
+  "available_models": [
+    "v1",
+    "v2"
+  ],
+  "models": {
+    "v1": {
+      "algorithm": "LogisticRegression",
+      "threshold": 0.56
+    },
+    "v2": {
+      "algorithm": "RandomForestClassifier",
+      "threshold": 0.54
+    }
+  },
+  "status": "ok"
+}
