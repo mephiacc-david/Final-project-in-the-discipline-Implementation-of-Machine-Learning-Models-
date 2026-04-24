@@ -42,11 +42,11 @@ python -m app.api
 Smoke checks:
 
 ```bash
-curl http://127.0.0.1:5000/health
+curl http://127.0.0.1:8000/health
 ```
 
 ```bash
-curl -X POST http://127.0.0.1:5000/predict \
+curl -X POST http://127.0.0.1:8000/predict \
   -H "Content-Type: application/json" \
   -d '{
     "features": {
@@ -80,7 +80,7 @@ curl -X POST http://127.0.0.1:5000/predict \
 Явный вызов candidate-модели:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/predict \
+curl -X POST http://127.0.0.1:8000/predict \
   -H "Content-Type: application/json" \
   -d '{
     "model_version": "v2",
@@ -115,7 +115,7 @@ curl -X POST http://127.0.0.1:5000/predict \
 Детерминированный A/B routing:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/predict \
+curl -X POST http://127.0.0.1:8000/predict \
   -H "Content-Type: application/json" \
   -H "X-Experiment-Key: customer-123" \
   -d @docs/demo/predict_request.json
@@ -132,7 +132,7 @@ docker build -t credit-default-service:local .
 Запуск:
 
 ```bash
-docker run --rm -p 5000:5000 credit-default-service:local
+docker run --rm -p 8000:8000 credit-default-service:local
 ```
 
 Bonus-compose сценарий:
@@ -140,6 +140,8 @@ Bonus-compose сценарий:
 ```bash
 docker compose up --build
 ```
+
+После запуска контейнера API доступен на `http://127.0.0.1:8000`.
 
 ## Docker Hub Image
 
@@ -167,7 +169,7 @@ docker.io/mephidavidacc/credit-default-service
 Пример `curl`-запроса:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/predict \
+curl -X POST http://127.0.0.1:8000/predict \
   -H "Content-Type: application/json" \
   -H "X-Request-ID: demo-predict-001" \
   -d @docs/demo/predict_request.json

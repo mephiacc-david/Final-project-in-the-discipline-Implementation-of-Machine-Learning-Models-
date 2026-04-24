@@ -1,5 +1,5 @@
 PYTHON ?= python3
-PORT ?= 5000
+PORT ?= 8000
 
 .PHONY: install prepare-data train run test lint format security quality-check docker-build docker-run
 
@@ -40,4 +40,4 @@ docker-build:
 	docker build -t credit-default-service:local .
 
 docker-run:
-	docker run --rm -p $(PORT):5000 credit-default-service:local
+	docker run --rm -e PORT=$(PORT) -p $(PORT):$(PORT) credit-default-service:local

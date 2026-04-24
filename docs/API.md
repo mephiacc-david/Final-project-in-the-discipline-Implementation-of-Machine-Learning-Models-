@@ -1,6 +1,6 @@
 # API Contract
 
-Base URL: `http://127.0.0.1:5000`
+Base URL: `http://127.0.0.1:8000`
 
 ## `GET /health`
 
@@ -140,4 +140,3 @@ Internal error `500`:
 - Все feature fields должны быть целыми числами.
 - Extra fields запрещены.
 - Порядок признаков в runtime берётся из schema, а не из порядка ключей в JSON.
-

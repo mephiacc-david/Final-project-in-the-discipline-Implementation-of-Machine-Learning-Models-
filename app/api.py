@@ -170,9 +170,13 @@ def _resolve_models_dir() -> Path:
     return Path(os.getenv("MODELS_DIR", MODELS_DIR))
 
 
+def _resolve_port() -> int:
+    return int(os.getenv("PORT", "8000"))
+
+
 def main() -> None:
     app = create_app()
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host="127.0.0.1", port=_resolve_port(), debug=False)
 
 
 if __name__ == "__main__":
